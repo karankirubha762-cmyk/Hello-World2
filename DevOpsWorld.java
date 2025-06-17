@@ -1,22 +1,26 @@
 /**
- * DevOpsWorld class prints a friendly message.
- * This class demonstrates basic Java structure and console output.
+ * DevOpsWorld class prints a dynamic, sanitized message.
+ * Demonstrates proper class naming, parameterization, and input safety.
  */
 public class DevOpsWorld {
 
     public static void main(String[] args) {
-        // Externalized message for better maintainability
-        String message = "Hello from DevOps World!";
-        System.out.println(message);
+        String baseMessage = "Welcome to DevOps World";
+        String userMessage = "";
 
-        // Optionally print user-provided args with basic validation
         if (args != null && args.length > 0) {
-            System.out.println("User input: " + sanitizeInput(args[0]));
+            userMessage = sanitizeInput(args[0]);  // Sanitize user input
         }
+
+        // Print a dynamic and safe message
+        System.out.println(baseMessage + (userMessage.isEmpty() ? "!" : ": " + userMessage));
     }
 
-    // Basic sanitization example
+    /**
+     * Sanitizes input by removing potentially dangerous characters.
+     * Only allows letters, numbers, and basic punctuation.
+     */
     private static String sanitizeInput(String input) {
-        return input.replaceAll("[^a-zA-Z0-9 ]", "");
+        return input.replaceAll("[^a-zA-Z0-9 .,!?]", "");
     }
 }
