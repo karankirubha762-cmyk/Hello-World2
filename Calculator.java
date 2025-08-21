@@ -11,14 +11,13 @@ public class Calculator {
     public static double multiply(double a, double b) {
         return a * b;
     }
-
     public static double divide(double a, double b) {
     if (b == 0) {
-        // feature branch behavior
-        throw new IllegalArgumentException("b cannot be 0 [feature]");
+        // final agreed behavior
+        throw new ArithmeticException("Cannot divide by zero");
     }
-    // feature: return full precision (no rounding)
-    return a / b;
-}
+    // keep rounding from master (or remove if you prefer)
+    return Math.round((a / b) * 100.0) / 100.0;
+    }
 
 }
