@@ -13,9 +13,12 @@ public class Calculator {
     }
 
     public static double divide(double a, double b) {
-        if (b == 0) {
-            throw new ArithmeticException("Cannot divide by zero");
-        }
-        return a / b;
+    if (b == 0) {
+        // feature branch behavior
+        throw new IllegalArgumentException("b cannot be 0 [feature]");
     }
+    // feature: return full precision (no rounding)
+    return a / b;
+}
+
 }
