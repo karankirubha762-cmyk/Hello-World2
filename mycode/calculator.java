@@ -12,7 +12,7 @@ public class calculator {
 
     public int add(){
         
-        return a+b;
+        return a+b+1;
     }
 
     public int substract(){
