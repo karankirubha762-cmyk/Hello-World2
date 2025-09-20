@@ -2,6 +2,7 @@ package src.main.java;
 
 public class Calculator {
     public int add(int a, int b) {
+        System.out.println("Add method changed in feature/calculator");
         return a + b;
     }
 
